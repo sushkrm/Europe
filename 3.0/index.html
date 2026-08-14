@@ -291,7 +291,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
     </div>
     <p class="cpnote" id="c-note"></p>
     <div class="tw"><table>
-      <thead><tr><th>What you could do</th><th class="num">Est.</th><th class="num">Running</th><th>Notes</th></tr></thead>
+      <thead id="c-head"><tr><th>What you could do</th><th class="num">Est.</th><th class="num">Running</th><th>Notes</th></tr></thead>
       <tbody id="c-body"></tbody>
     </table></div>
   </div>
@@ -344,7 +344,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   <div class="section-head">
     <h2>Experiences</h2>
     <h3>The Antwerp stop, hour by hour, and why</h3>
-    <p class="lede">The block notes on the Day by day page keep things short. This is the fuller reasoning behind how that day is actually sequenced.</p>
+    <p class="lede">Tap Antwerp on the Route page for the exact hour-by-hour sequence. This is the fuller reasoning behind why it's ordered that way.</p>
   </div>
   <div class="notes">
     <div class="note"><span class="flag">Timing</span><h3>The Cathedral is scheduled last on purpose</h3>
@@ -487,11 +487,7 @@ B(16,5,3,"05:40–06:30",0.83,"local","Paris hotel → Gare du Nord","Leave the 
 B(17,5,4,"06:30–07:13",0.72,"dead","Paris","Check-in closes 30 min before departure — this is the wait"),
 B(101,5,5,"07:13–09:03",1.83,"inter","Paris Gare du Nord → Antwerpen-Centraal","Eurostar — a direct service, no change at Brussels.",1),
 B(102,5,6,"09:03–09:28",0.42,"local","Antwerp","Lockers — everything here is within a few minutes of the station."),
-B(111,5,7,"09:28–09:53",0.42,"explore","Antwerp","Antwerpen-Centraal itself — often called one of the great railway stations in Europe. Worth properly taking in, not just passing through.",1),
-B(112,5,8,"09:53–10:38",0.75,"explore","Antwerp","Grote Markt — guild-house facades, the Stadhuis, and a coffee at one of the cafés on the square rather than just a walk-through.",1),
-B(113,5,9,"10:38–12:18",1.67,"explore","Antwerp","Brunch, not lunch — Belgian Sunday brunch spreads run long. Padded for a possible wait without a reservation; book ahead if you can to skip this risk entirely.",1),
-B(114,5,10,"12:18–12:58",0.67,"explore","Antwerp","Free wander — Meir or the riverside, deliberately unstructured.",1),
-B(115,5,11,"12:58–14:28",1.5,"explore","Antwerp","Cathedral of Our Lady — the actual reason to stop here. Four Rubens altarpieces, including the Elevation and Descent of the Cross, painted for this exact space. Scheduled last on purpose: it typically doesn't open to visitors until after Sunday mass, around 13:00.",1),
+B(111,5,7,"09:28–14:28",5.01,"explore","Antwerp","Station, Grote Markt, brunch, free wander, then the Cathedral of Our Lady, timed to its Sunday opening — tap this stop on the Route page above for the exact hour-by-hour sequence and why it's ordered this way.",1),
 B(116,5,12,"14:28–14:58",0.5,"dead","Antwerp","Buffer before heading back — absorbs a cathedral queue or a brunch that ran long. Not a scheduled activity."),
 B(104,5,13,"14:58–15:23",0.42,"local","Antwerpen-Centraal platform","Collect the lockers and get to the platform.",1),
 B(105,5,14,"15:23–16:33",1.17,"inter","Antwerpen-Centraal → Amsterdam Centraal","Direct Intercity — noticeably shorter than the Brussels leg, since Antwerp is closer to Amsterdam.",1),
@@ -536,7 +532,7 @@ B(58,11,4,"11:10–15:40",13.5,"inter","Paris CDG → Seattle SEA","Thirteen and
 
 var PATCH = {
   brussels: {
-    drop:[101,102,111,112,113,114,115,116,104,105,106,107,108],
+    drop:[101,102,111,116,104,105,106,107,108],
     add:[
       B(18,5,5,"07:13–08:38",1.42,"inter","Paris Gare du Nord → Brussels-Midi","Eurostar.",1),
       B(19,5,6,"08:38–09:03",0.42,"local","Brussels","Locker queue and getting your bearings"),
@@ -637,7 +633,20 @@ var VIBES = {
 
 var CITY_NOTE = {
   "CDG airport hotel":"An airport overnight, nothing more. Book something terminal-connected — Ibis Styles CDG or Sheraton CDG — so a late landing doesn't turn into a shuttle hunt.",
-  "Antwerp":"This stop runs on a fixed sequence, not a loose priority list — the station, Grote Markt, brunch, free wander, then the Cathedral timed to its Sunday opening. See Day by day for the exact schedule and Experiences for the reasoning behind the order. MAS and the Rubens House didn't make the cut at this length; both are real options if the stopover ever runs longer."
+  "Antwerp":"This stop runs on a fixed sequence rather than a loose priority list, since the Cathedral has to land after its Sunday opening. MAS and the Rubens House didn't make the cut at this length — both are real options if the stopover ever runs longer. See the Experiences tab for the fuller reasoning."
+};
+
+// place → [ [time, what, note], ... ] — a fixed sequence, shown instead of the
+// generic priority-list table for stops that don't work as a loose "what fits" list.
+var SEQUENCE = {
+  "Antwerp":[
+    ["09:28–09:53","Antwerpen-Centraal","One of Europe's great railway stations — worth taking in properly, not just passing through."],
+    ["09:53–10:38","Grote Markt","Guild-house facades, the Stadhuis, and a coffee at one of the cafés on the square."],
+    ["10:38–12:18","Brunch, not lunch","Belgian Sunday brunch runs long. Padded for a possible wait without a reservation — book ahead to skip the risk."],
+    ["12:18–12:58","Free wander","Meir or the riverside, deliberately unstructured."],
+    ["12:58–14:28","Cathedral of Our Lady","Four Rubens altarpieces painted for this exact space. Scheduled last — it typically doesn't open until after Sunday mass, around 13:00."],
+    ["14:28–14:58","Buffer","Absorbs a cathedral queue or a brunch that ran long — not a scheduled activity."]
+  ]
 };
 
 var TIERS = [
@@ -910,14 +919,29 @@ function renderCityPanel(cs){
   var el = document.getElementById("citypanel");
   if (!openCity || !cs.map[openCity]){ el.hidden = true; return; }
   var v = cs.map[openCity];
-  var list = SIGHTS[openCity] || [];
-  var usable = v.explore * 0.8;
+  var head = document.getElementById("c-head");
 
   document.getElementById("c-title").textContent = v.name;
   document.getElementById("c-meta").textContent =
     "In " + DAYS[v.inD - 1].sh + " " + v.inT + " · out " + DAYS[v.outD - 1].sh + " " + v.outT +
     " · " + h1(v.ground) + " h on the ground";
 
+  if (SEQUENCE[openCity]){
+    head.innerHTML = "<tr><th>Time</th><th>What's happening</th><th>Notes</th></tr>";
+    var seq = SEQUENCE[openCity], seqRows = "";
+    for (var j = 0; j < seq.length; j++){
+      seqRows += '<tr><td class="tm">' + esc(seq[j][0]) + '</td><td class="sname">' + esc(seq[j][1]) +
+                 '</td><td class="why">' + esc(seq[j][2]) + '</td></tr>';
+    }
+    document.getElementById("c-note").textContent = CITY_NOTE[openCity] || "";
+    document.getElementById("c-body").innerHTML = seqRows;
+    el.hidden = false;
+    return;
+  }
+
+  head.innerHTML = "<tr><th>What you could do</th><th class=\"num\">Est.</th><th class=\"num\">Running</th><th>Notes</th></tr>";
+  var list = SIGHTS[openCity] || [];
+  var usable = v.explore * 0.8;
   var fits = 0, run = 0, rows = "";
   for (var i = 0; i < list.length; i++){
     var s = list[i], over = (run + s[1]) > usable;
