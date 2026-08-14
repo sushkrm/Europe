@@ -250,9 +250,21 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   .close,.budget .hint,.opts .hint{display:none}
   .opt[aria-pressed="false"]{display:none}
 }
+@media print{ .dep-banner{display:none} }
+.dep-banner{background:var(--paper);border-bottom:2px solid var(--local);padding:14px 20px;
+  display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;justify-content:center;text-align:center}
+.dep-flag{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--local);font-weight:600;white-space:nowrap}
+.dep-text{font-family:"Newsreader",Georgia,serif;font-size:.92rem;color:var(--ink-2)}
+.dep-link{color:var(--local);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.dep-link:hover{color:var(--ink)}
 </style>
 </head>
 <body>
+<div class="dep-banner">
+  <span class="dep-flag">Deprecated plan</span>
+  <span class="dep-text">This is an earlier version of this itinerary and is no longer being maintained. See the <a class="dep-link" href="https://sushkrm.github.io/Europe/3.0/">current plan (Europe 3.0)</a>.</span>
+</div>
 <div class="wrap">
 
 <nav class="nav" id="nav" aria-label="Sections">

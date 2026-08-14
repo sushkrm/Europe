@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Europe 2.0 — 3–13 September</title>
+<title>Europe 3.0 — 3–13 September</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%97%BC</text></svg>">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9A%86</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,41 +252,104 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   .close,.budget .hint,.opts .hint{display:none}
   .opt[aria-pressed="false"]{display:none}
 }
-@media print{ .dep-banner{display:none} }
-.dep-banner{background:var(--paper);border-bottom:2px solid var(--local);padding:14px 20px;
-  display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;justify-content:center;text-align:center}
-.dep-flag{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--local);font-weight:600;white-space:nowrap}
-.dep-text{font-family:"Newsreader",Georgia,serif;font-size:.92rem;color:var(--ink-2)}
-.dep-link{color:var(--local);text-decoration:underline;text-underline-offset:2px;font-weight:500}
-.dep-link:hover{color:var(--ink)}
 </style>
 </head>
 <body>
-<div class="dep-banner">
-  <span class="dep-flag">Deprecated plan</span>
-  <span class="dep-text">This is an earlier version of this itinerary and is no longer being maintained. See the <a class="dep-link" href="https://sushkrm.github.io/Europe/3.0/">current plan (Europe 3.0)</a>.</span>
-</div>
 <div class="wrap">
 
 <nav class="nav" id="nav" aria-label="Sections">
-  <div class="navin"><a href="#budget" data-nav="budget">Time budget</a><a href="#route" data-nav="route">Route</a><a href="#percity" data-nav="percity">Per city</a><a href="#vibe" data-nav="vibe">Vibe</a><a href="#days" data-nav="days">Day by day</a><a href="#versus" data-nav="versus">Vs original</a><a href="#book" data-nav="book">Bookings</a><a href="#prep" data-nav="prep">Before you go</a></div>
+  <div class="navin"><a href="#route" data-nav="route">Route</a><a href="#days" data-nav="days">Day by day</a><a href="#book" data-nav="book">Bookings</a><a href="#prep" data-nav="prep">Before you go</a><a href="#percity" data-nav="percity">Per city</a><a href="#budget" data-nav="budget">Time budget</a><a href="#antwerp" data-nav="antwerp">Brussels vs Antwerp</a><a href="#versus" data-nav="versus">Vs original</a><a href="#vibe" data-nav="vibe">Vibe</a></div>
 </nav>
 
 <header>
   <p class="route" id="routeline"></p>
-  <h1>Europe 2.0</h1>
+  <h1>Europe 3.0</h1>
 
   <div class="opts">
     <p class="hint">Try a variation — everything below recalculates</p>
     <div class="optrow">
-      <button class="opt" data-opt="cologne" aria-pressed="false"><span class="tick"></span><span><span class="ot">Add Cologne</span><span class="od">A second stopover on the transit day, after Brussels</span></span></button>
+      <button class="opt" data-opt="brussels" aria-pressed="false"><span class="tick"></span><span><span class="ot">Brussels instead of Antwerp</span><span class="od">Same stopover length, a different city on the ground</span></span></button>
     </div>
     <p id="delta"></p>
   </div>
 
   <div class="facts" id="facts"></div>
 </header>
+
+<section id="route">
+  <div class="section-head">
+    <h2>The route</h2>
+    <h3>Where to where, and what fits</h3>
+    <p class="lede">The line runs top to bottom, Seattle to Seattle. Dot size is time on the ground. Tap a stop for arrival and departure times and what you can realistically cover there.</p>
+  </div>
+  <div class="rail" id="chips"></div>
+  <div id="citypanel" hidden>
+    <div class="cph">
+      <h3 id="c-title"></h3>
+      <span class="cpmeta" id="c-meta"></span>
+      <button class="close" id="c-close">Close</button>
+    </div>
+    <p class="cpnote" id="c-note"></p>
+    <div class="tw"><table>
+      <thead><tr><th>What you could do</th><th class="num">Est.</th><th class="num">Running</th><th>Notes</th></tr></thead>
+      <tbody id="c-body"></tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="days">
+  <div class="section-head">
+    <h2>Day by day</h2>
+    <h3>The full run</h3>
+    <p class="lede">Solid dots are places. Dashed segments are movement. All times local.</p>
+  </div>
+  <div class="notes" style="margin-bottom:26px">
+    <div class="note"><span class="flag">Coordination</span><h3>Achyuth is in Budapest, separately</h3>
+      <p>Not part of this itinerary — this route doesn't go to Budapest — but Achyuth is traveling there on his own from early morning Tuesday 9 Sep (07:00) through midnight Wednesday 10 Sep. Noted here for scheduling, in case plans need to sync up.</p></div>
+  </div>
+  <div id="timeline"></div>
+</section>
+
+<section id="book">
+  <div class="section-head">
+    <h2>Bookings</h2>
+    <h3>Tickets to buy before you go</h3>
+    <p class="lede">Museums, attractions and trains only — hotels and flights left out for now. Ordered by how soon it has to happen. This list changes with the option at the top.</p>
+  </div>
+  <div id="bookings"></div>
+</section>
+
+<section id="prep">
+  <div class="section-head">
+    <h2>Before you go</h2>
+    <h3>What actually needs doing</h3>
+  </div>
+  <div class="notes">
+    <div class="note"><span class="flag">Blocking</span><h3>Schengen visa</h3>
+      <p>Through the French consulate — France wins on both tests, longest stay and first entry. Apply via TLScontact, not VFS: the Seattle centre is at 1420 Fifth Avenue, applications are adjudicated in San Francisco, and it's 15 working days minimum with no expedite option.</p></div>
+    <div class="note"><span class="flag">Blocking</span><h3>Entry biometrics</h3>
+      <p>The EU's Entry/Exit System has been live since April 2026 — budget extra time for biometrics on first entry at CDG, on top of the usual immigration queue.</p></div>
+    <div class="note"><span class="flag">Blocking</span><h3>Re-entry documents</h3>
+      <p>I-20 travel signature current within six months, EAD card, and an employment verification letter in your carry-on, not checked.</p></div>
+    <div class="note"><span class="flag">Money</span><h3>One ticket, three legs</h3>
+      <p>Search multi-city: SEA→CDG on the 3rd, CDG→SEA on the 13th, plus the Amsterdam→Prague and Prague→CDG hops. A bag is checked on the Amsterdam→Prague leg — budget the extra check-in time and the baggage-claim wait on arrival, both already built into that day's schedule.</p></div>
+    <div class="note"><span class="flag">Free time</span><h3>Trim the mornings</h3>
+      <p>Morning routine is the largest slice of dead time on this plan. Thirty minutes saved off each buys back several hours across ten days.</p></div>
+    <div class="note"><span class="flag">Hotels</span><h3>Stay near the stations</h3>
+      <p>Four bases this time, not six — Paris, Amsterdam, Prague, CDG. Walking distance to Gare du Nord, Centraal and Wenceslas Square is still the only real fix for local-transfer time.</p></div>
+  </div>
+</section>
+
+<section id="percity">
+  <div class="section-head">
+    <h2>Per city</h2>
+    <h3>What each place actually gets</h3>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Place</th><th class="num">Nights</th><th class="num">On ground</th><th class="num">Sleep</th><th class="num">Dead</th><th class="num">Exploring</th><th class="num">Days</th><th style="width:120px">Split</th></tr></thead>
+    <tbody id="cities"></tbody>
+  </table></div>
+</section>
 
 <section id="budget">
   <div class="section-head">
@@ -321,54 +384,25 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   </div>
 </section>
 
-<section id="route">
+<section id="antwerp">
   <div class="section-head">
-    <h2>The route</h2>
-    <h3>Where to where, and what fits</h3>
-    <p class="lede">The line runs top to bottom, Seattle to Seattle. Dot size is time on the ground. Tap a stop for arrival and departure times and what you can realistically cover there.</p>
-  </div>
-  <div class="rail" id="chips"></div>
-  <div id="citypanel" hidden>
-    <div class="cph">
-      <h3 id="c-title"></h3>
-      <span class="cpmeta" id="c-meta"></span>
-      <button class="close" id="c-close">Close</button>
-    </div>
-    <p class="cpnote" id="c-note"></p>
-    <div class="tw"><table>
-      <thead><tr><th>What you could do</th><th class="num">Est.</th><th class="num">Running</th><th>Notes</th></tr></thead>
-      <tbody id="c-body"></tbody>
-    </table></div>
-  </div>
-</section>
-
-<section id="percity">
-  <div class="section-head">
-    <h2>Per city</h2>
-    <h3>What each place actually gets</h3>
+    <h2>Brussels vs Antwerp</h2>
+    <h3>Roughly 3.5 hours on the ground, either way</h3>
+    <p class="lede">This is a real toggle on this page, not just a comparison — flip "Brussels instead of Antwerp" above and the route, timeline and bookings all update. Here's the actual reasoning behind the default.</p>
   </div>
   <div class="tw"><table>
-    <thead><tr><th>Place</th><th class="num">Nights</th><th class="num">On ground</th><th class="num">Sleep</th><th class="num">Dead</th><th class="num">Exploring</th><th class="num">Days</th><th style="width:120px">Split</th></tr></thead>
-    <tbody id="cities"></tbody>
+    <thead><tr><th style="width:22%"></th><th>Antwerp (default)</th><th>Brussels (toggle)</th></tr></thead>
+    <tbody>
+      <tr><td class="place">Station to old town</td><td>2 min from Centraal — the station itself is a sight, one of Europe's grandest</td><td>5–10 min walk from Midi</td></tr>
+      <tr><td class="place">What fits in ~2.5 hours of actual sightseeing</td><td>Cathedral of Our Lady (Rubens altarpieces in situ), Grote Markt, a walk along the Scheldt to the MAS</td><td>Grand Place, Galeries Saint-Hubert, waffles and fries, Manneken Pis — the classic tight loop</td></tr>
+      <tr><td class="place">Old town character</td><td>Intimate and Flemish — smaller scale, arguably the prettier core of the two</td><td>Grand and formal — 17th-century guild-hall opulence, restored rather than rebuilt</td></tr>
+      <tr><td class="place">Leg to Amsterdam</td><td>Direct Intercity, ~1h10 — Antwerp is simply closer</td><td>Eurostar, 1h49</td></tr>
+    </tbody>
   </table></div>
-</section>
-
-<section id="vibe">
-  <div class="section-head">
-    <h2>Vibe</h2>
-    <h3>What each place actually feels like</h3>
-    <p class="lede">Not what to see — what it's like to be there. Changes with the Cologne toggle, since it puts a different city on the ground.</p>
+  <div class="notes" style="margin-top:1px">
+    <div class="note"><span class="flag">Verdict</span><h3>Close call. Antwerp is the default because the stopover here is short.</h3>
+      <p>At a genuinely tight ~2.5 hours of ground time, Antwerp's compact, station-adjacent core is the better-shaped visit — everything is within a few minutes' walk, so none of the short window is lost to transit within the city itself. It also gets you into Amsterdam roughly 25–40 minutes sooner, since the onward leg is shorter, which matters given the goal is a real evening in Amsterdam, not just a later check-in. Brussels is still worth toggling to if Grand Place specifically is the priority, or if this stopover ever gets stretched longer — it has more depth to fill extra hours with.</p></div>
   </div>
-  <div class="notes" id="vibes"></div>
-</section>
-
-<section id="days">
-  <div class="section-head">
-    <h2>Day by day</h2>
-    <h3>The full run</h3>
-    <p class="lede">Solid dots are places. Dashed segments are movement. All times local.</p>
-  </div>
-  <div id="timeline"></div>
 </section>
 
 <section id="versus">
@@ -384,34 +418,13 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   <div class="notes" id="ledger" style="margin-top:1px"></div>
 </section>
 
-<section id="book">
+<section id="vibe">
   <div class="section-head">
-    <h2>Bookings</h2>
-    <h3>Tickets to buy before you go</h3>
-    <p class="lede">Museums, attractions and trains only — hotels and flights left out for now. Ordered by how soon it has to happen. This list changes with the option at the top.</p>
+    <h2>Vibe</h2>
+    <h3>What each place actually feels like</h3>
+    <p class="lede">Not what to see — what it's like to be there. Changes with the Brussels toggle, since it puts a different city on the ground.</p>
   </div>
-  <div id="bookings"></div>
-</section>
-
-<section id="prep">
-  <div class="section-head">
-    <h2>Before you go</h2>
-    <h3>What actually needs doing</h3>
-  </div>
-  <div class="notes">
-    <div class="note"><span class="flag">Blocking</span><h3>Schengen visa</h3>
-      <p>Through the French consulate — France wins on both tests, longest stay and first entry. Apply via TLScontact, not VFS: the Seattle centre is at 1420 Fifth Avenue, applications are adjudicated in San Francisco, and it's 15 working days minimum with no expedite option.</p></div>
-    <div class="note"><span class="flag">Blocking</span><h3>Entry biometrics</h3>
-      <p>The EU's Entry/Exit System has been live since April 2026 — budget extra time for biometrics on first entry at CDG, on top of the usual immigration queue.</p></div>
-    <div class="note"><span class="flag">Blocking</span><h3>Re-entry documents</h3>
-      <p>I-20 travel signature current within six months, EAD card, and an employment verification letter in your carry-on, not checked.</p></div>
-    <div class="note"><span class="flag">Money</span><h3>One ticket, three legs</h3>
-      <p>Search multi-city: SEA→CDG on the 3rd, CDG→SEA on the 13th, plus the Amsterdam→Budapest and Budapest→CDG hops. Confirm what's carry-on only before booking the tightest connections.</p></div>
-    <div class="note"><span class="flag">Free time</span><h3>Trim the mornings</h3>
-      <p>Morning routine is the largest slice of dead time on this plan. Thirty minutes saved off each buys back several hours across ten days.</p></div>
-    <div class="note"><span class="flag">Hotels</span><h3>Stay near the stations</h3>
-      <p>Four bases this time, not six — Paris, Amsterdam, Budapest, CDG. Walking distance to Gare du Nord, Centraal and Keleti is still the only real fix for local-transfer time.</p></div>
-  </div>
+  <div class="notes" id="vibes"></div>
 </section>
 
 <footer>Times are estimates and shift by 10–20 minutes depending on operator and booking date. Confirm every departure when you ticket it. Totals cover time in Europe only — Paris touchdown to Paris takeoff. The transatlantic flights (12h45 out, 13h30 back) are real and shown on the route rail, but aren't part of the time budget.</footer>
@@ -452,16 +465,16 @@ B(12,4,3,"06:50–22:30",15.67,"explore","Paris","Notre-Dame and Île de la Cit�
 B(13,4,4,"22:30–22:45",0.25,"dead","Paris","Wind-down — early alarm tonight"),
 B(14,5,1,"22:45–05:00",6.25,"sleep","Paris","Short night — up before dawn for the 07:13 Eurostar"),
 B(15,5,2,"05:00–05:40",0.67,"dead","Paris","Wake, pack, quick checkout"),
-B(16,5,3,"05:40–06:30",0.83,"local","Paris hotel → Gare du Nord","Taxi or first metro; at the station by 06:30 as planned.",1),
+B(16,5,3,"05:40–06:30",0.83,"local","Paris hotel → Gare du Nord","Leave the hotel by 05:40 — taxi or first metro, at the station by 06:30 as planned.",1),
 B(17,5,4,"06:30–07:13",0.72,"dead","Paris","Check-in closes 30 min before departure — this is the wait"),
-B(18,5,5,"07:13–08:38",1.42,"inter","Paris Gare du Nord → Brussels-Midi","Eurostar.",1),
-B(19,5,6,"08:38–09:03",0.42,"local","Brussels","Locker queue and getting your bearings"),
-B(20,5,7,"09:03–16:30",7.45,"explore","Brussels","Grand Place, Galeries Saint-Hubert, waffles and fries, Manneken Pis, then the Sablon and Cinquantenaire — a full stopover buys real time here.",1),
-B(21,5,8,"16:30–16:55",0.42,"local","Brussels centre → Midi","Walk back and collect the lockers.",1),
-B(22,5,9,"16:55–18:44",1.82,"inter","Brussels-Midi → Amsterdam Centraal","Eurostar.",1),
-B(23,5,10,"18:44–19:09",0.42,"local","Centraal → Amsterdam hotel","Tram or metro.",1),
-B(24,5,11,"19:09–19:24",0.25,"dead","Amsterdam","Settling in"),
-B(25,5,12,"19:24–22:45",3.35,"explore","Amsterdam","Canal loop on foot, dinner in the Jordaan — a real first evening, only possible because Cologne isn't eating the day.",1),
+B(101,5,5,"07:13–09:03",1.83,"inter","Paris Gare du Nord → Antwerpen-Centraal","Eurostar — a direct service, no change at Brussels.",1),
+B(102,5,6,"09:03–09:28",0.42,"local","Antwerp","Lockers — everything here is within a few minutes of the station."),
+B(103,5,7,"09:28–12:08",2.67,"explore","Antwerp","Cathedral of Our Lady — Rubens altarpieces in situ — then the Grote Markt and a walk along the Scheldt to the MAS.",1),
+B(104,5,8,"12:08–12:33",0.42,"local","Antwerpen-Centraal platform","Head back by 12:08 and collect the lockers — the Amsterdam train doesn't wait.",1),
+B(105,5,9,"12:33–13:43",1.17,"inter","Antwerpen-Centraal → Amsterdam Centraal","Direct Intercity — noticeably shorter than the Brussels leg, since Antwerp is closer to Amsterdam.",1),
+B(106,5,10,"13:43–14:08",0.42,"local","Centraal → Amsterdam hotel","Tram or metro.",1),
+B(107,5,11,"14:08–14:23",0.25,"dead","Amsterdam","Settling in"),
+B(108,5,12,"14:23–22:45",8.37,"explore","Amsterdam","A genuine first evening, arriving with even more daylight left than via Brussels. Canal loop on foot, dinner in the Jordaan.",1),
 B(26,5,13,"22:45–23:00",0.25,"dead","Amsterdam","Wind-down"),
 B(27,6,1,"23:00–05:35",6.58,"sleep","Amsterdam","First Amsterdam night"),
 B(28,6,2,"05:35–07:05",1.5,"dead","Amsterdam","Morning routine"),
@@ -473,43 +486,43 @@ B(33,7,3,"06:50–22:30",15.67,"explore","Amsterdam","Van Gogh Museum, a canal b
 B(34,7,4,"22:30–22:45",0.25,"dead","Amsterdam","Wind-down — early alarm tonight"),
 B(35,8,1,"22:45–05:30",6.75,"sleep","Amsterdam","Short night before a flight day"),
 B(36,8,2,"05:30–06:45",1.25,"dead","Amsterdam","Morning plus checkout"),
-B(37,8,3,"06:45–09:15",2.5,"local","Amsterdam hotel → Schiphol","Direct train plus check-in.",1),
-B(38,8,4,"09:15–11:35",2.33,"inter","Amsterdam AMS → Budapest BUD","Direct flight.",1),
-B(39,8,5,"11:35–12:05",0.5,"local","BUD → Budapest hotel","Airport bus or metro M3.",1),
-B(40,8,6,"12:05–12:20",0.25,"dead","Budapest","Settling in"),
-B(41,8,7,"12:20–22:23",10.05,"explore","Budapest","Parliament interior tour — book now — then Shoes on the Danube and the Basilica, Great Market Hall, and Széchenyi after dark.",1),
-B(42,8,8,"22:23–22:38",0.25,"dead","Budapest","Wind-down"),
-B(43,9,1,"22:45–05:20",6.58,"sleep","Budapest","First Budapest night"),
-B(44,9,2,"05:20–06:50",1.5,"dead","Budapest","Morning routine"),
-B(45,9,3,"06:50–22:30",15.67,"explore","Budapest","Castle Hill, Fisherman's Bastion, Matthias Church, down to the Chain Bridge, then Gellért Hill for the panorama.",1),
-B(46,9,4,"22:30–22:45",0.25,"dead","Budapest","Wind-down"),
-B(47,10,1,"22:45–05:20",6.58,"sleep","Budapest","Second Budapest night"),
-B(48,10,2,"05:20–06:50",1.5,"dead","Budapest","Morning routine"),
-B(49,10,3,"06:50–16:00",9.17,"explore","Budapest","Andrássy út and the House of Terror, Margaret Island, and a last pass through the Great Market Hall.",1),
-B(50,10,4,"16:00–16:45",0.75,"dead","Budapest","Checkout and bag retrieval"),
-B(51,10,5,"16:45–19:30",2.75,"local","Budapest hotel → BUD","100E Airport Express plus two hours check-in.",1),
-B(52,10,6,"19:30–21:40",2.17,"inter","Budapest BUD → Paris CDG","Repositioning flight.",1),
-B(53,10,7,"21:40–22:05",0.42,"local","CDG → airport hotel","Shuttle or CDGVAL. Book terminal-connected.",1),
-B(54,10,8,"22:05–23:15",1.17,"dead","CDG airport hotel","Check-in, late snack, wind-down"),
-B(55,11,1,"23:15–05:30",6.25,"sleep","CDG airport hotel","Short night before the flight home"),
-B(56,11,2,"05:30–08:10",2.67,"dead","CDG airport hotel","Wake, pack, breakfast, wait for the shuttle"),
-B(57,11,3,"08:10–11:10",3.0,"local","CDG hotel → gate","Shuttle plus 2.5 h international check-in.",1),
+B(37,8,3,"06:45–09:30",2.75,"local","Amsterdam hotel → Schiphol","Direct train, plus check-in with a checked bag — allow more than carry-on alone would need. Leave the hotel by 06:45.",1),
+B(38,8,4,"09:30–11:10",1.67,"inter","Amsterdam AMS → Prague PRG","Direct flight, bag checked through.",1),
+B(59,8,5,"11:10–11:30",0.33,"dead","Prague","Baggage claim — a real wait now that a bag is checked, not carry-on"),
+B(39,8,6,"11:30–12:00",0.5,"local","PRG → Prague hotel","Bus 119 plus metro A, or a taxi.",1),
+B(40,8,7,"12:00–12:15",0.25,"dead","Prague","Drop bags at the hotel — check-in may not be ready this early, but they'll hold bags"),
+B(41,8,8,"12:15–22:23",10.14,"explore","Prague","Old Town Square, the astronomical clock, Charles Bridge at dusk — low-effort walking after a travel day.",1),
+B(42,8,9,"22:23–22:38",0.25,"dead","Prague","Wind-down"),
+B(43,9,1,"22:45–05:20",6.58,"sleep","Prague","First Prague night"),
+B(44,9,2,"05:20–06:50",1.5,"dead","Prague","Morning routine"),
+B(45,9,3,"06:50–22:30",15.67,"explore","Prague","Prague Castle complex and St Vitus Cathedral, Malá Strana, then Letná beer garden for the view.",1),
+B(46,9,4,"22:30–22:45",0.25,"dead","Prague","Wind-down"),
+B(47,10,1,"22:45–05:20",6.58,"sleep","Prague","Second Prague night"),
+B(48,10,2,"05:20–06:50",1.5,"dead","Prague","Morning routine"),
+B(49,10,3,"06:50–17:45",10.92,"explore","Prague","Petřín Hill and tower, the Jewish Quarter, Vyšehrad, and a last walk through the Old Town.",1),
+B(50,10,4,"17:45–18:30",0.75,"dead","Prague","Checkout and bag retrieval"),
+B(51,10,5,"18:30–20:45",2.25,"local","Prague hotel → PRG","Leave the hotel by 18:30 — bus or taxi to Václav Havel Airport, plus international check-in.",1),
+B(52,10,6,"20:45–22:20",1.58,"inter","Prague PRG → Paris CDG","Direct flight, closing the loop before the transatlantic leg home.",1),
+B(53,10,7,"22:20–22:45",0.42,"local","CDG → airport hotel","Shuttle or CDGVAL. Book terminal-connected.",1),
+B(54,10,8,"22:45–23:35",0.83,"dead","CDG airport hotel","Check-in and a quick snack — a later landing this time, so less evening to spare"),
+B(55,11,1,"23:35–05:50",6.25,"sleep","CDG airport hotel","Short night before the flight home"),
+B(56,11,2,"05:50–08:10",2.34,"dead","CDG airport hotel","Wake, pack, breakfast, wait for the shuttle — a tighter morning than before"),
+B(57,11,3,"08:10–11:10",3.0,"local","CDG hotel → gate","Leave the hotel by 08:10 — shuttle plus 2.5 h international check-in for the flight home.",1),
 B(58,11,4,"11:10–15:40",13.5,"inter","Paris CDG → Seattle SEA","Thirteen and a half hours — again longer than a nonstop, so confirm the routing. Not counted in the time budget below.",1,1)
 ];
 
 var PATCH = {
-  cologne: {
-    drop:[20,21,22,23,24,25,26],
+  brussels: {
+    drop:[101,102,103,104,105,106,107,108],
     add:[
-      B(201,5,7,"09:03–12:03",3.0,"explore","Brussels","Grand Place, Galeries Saint-Hubert, waffles and fries, Manneken Pis — the tight version. Cologne is taking the rest of the day.",1),
-      B(202,5,8,"12:03–12:28",0.42,"local","Brussels centre → Midi","Walk back and collect the lockers.",1),
-      B(203,5,9,"12:28–14:18",1.83,"inter","Brussels-Midi → Köln Hbf","Thalys or ICE. There is no direct Antwerp–Cologne train — the reason this route runs through Brussels rather than Antwerp.",1),
-      B(204,5,10,"14:18–14:38",0.33,"local","Cologne","Lockers and orientation — the Dom is two minutes from the platform and free until 19:00."),
-      B(205,5,11,"14:38–18:27",3.82,"explore","Cologne","Kölner Dom, the Hohenzollern Bridge love-locks, a walk along the Rhine. The Altstadt itself is postwar reconstruction — flattened in 1945 — so the cathedral is most of the real reason to stop.",1),
-      B(206,5,12,"18:27–18:47",0.33,"local","Köln Hbf platform","Collect the lockers.",1),
-      B(207,5,13,"18:47–21:29",2.7,"inter","Köln Hbf → Amsterdam Centraal","ICE International.",1),
-      B(208,5,14,"21:29–21:54",0.42,"local","Centraal → Amsterdam hotel","Tram or metro.",1),
-      B(209,5,15,"21:54–23:00",1.1,"dead","Amsterdam","Check-in and a quick bite near the hotel — no real evening left. This is the actual cost of Cologne: exploring hours in Amsterdam, traded for a cathedral and a bridge.")
+      B(18,5,5,"07:13–08:38",1.42,"inter","Paris Gare du Nord → Brussels-Midi","Eurostar.",1),
+      B(19,5,6,"08:38–09:03",0.42,"local","Brussels","Locker queue and getting your bearings"),
+      B(20,5,7,"09:03–11:43",2.67,"explore","Brussels","Grand Place, Galeries Saint-Hubert, waffles and fries, Manneken Pis — kept tight on purpose, so there's a real evening left in Amsterdam.",1),
+      B(21,5,8,"11:43–12:08",0.42,"local","Brussels centre → Midi","Head back by 11:43 and collect the lockers — the Amsterdam train doesn't wait.",1),
+      B(22,5,9,"12:08–13:57",1.82,"inter","Brussels-Midi → Amsterdam Centraal","Eurostar.",1),
+      B(23,5,10,"13:57–14:22",0.42,"local","Centraal → Amsterdam hotel","Tram or metro.",1),
+      B(24,5,11,"14:22–14:37",0.25,"dead","Amsterdam","Settling in"),
+      B(25,5,12,"14:37–22:45",8.13,"explore","Amsterdam","A genuine first evening, not just a late check-in — canal loop on foot, dinner in the Jordaan, arriving with real daylight left.",1)
     ]
   }
 };
@@ -527,7 +540,7 @@ var CATS = [
    note:"Station and airport overhead, plus stopover logistics — lockers, orientation, walking back to catch the next train. The only real lever is booking hotels within walking distance of the stations."}
 ];
 
-var CITY_ORDER = ["Paris","Brussels","Cologne","Amsterdam","Budapest","CDG airport hotel"];
+var CITY_ORDER = ["Paris","Antwerp","Brussels","Amsterdam","Prague","CDG airport hotel"];
 var CITY_SET = {};
 for (var ci = 0; ci < CITY_ORDER.length; ci++) CITY_SET[CITY_ORDER[ci]] = true;
 
@@ -556,12 +569,12 @@ var SIGHTS = {
     ["Cinquantenaire Park and arch",1.0,""],
     ["Atomium",2.5,"Far out on metro 6 — not on a stopover"]
   ],
-  "Cologne":[
-    ["Kölner Dom",1.0,"Two minutes from the platform, free entry until 19:00"],
-    ["Hohenzollern Bridge love-locks",0.5,"Right beside the cathedral"],
-    ["Rhine promenade walk",1.0,""],
-    ["Cologne Chocolate Museum",1.5,"A 20-minute walk along the river"],
-    ["Altstadt wander",1.0,"Rebuilt after 1945 — pleasant, not medieval"]
+  "Antwerp":[
+    ["Cathedral of Our Lady",1.0,"Rubens altarpieces in situ — the Raising and Descent of the Cross"],
+    ["Grote Markt",0.5,"Two minutes from Centraal"],
+    ["Antwerpen-Centraal itself",0.5,"One of Europe's great railway stations — worth ten minutes before you leave the platform"],
+    ["MAS museum and riverside walk",1.5,"Free to walk up; the view from the top floor is the reason to go inside"],
+    ["Rubens House",1.5,"His actual home and studio, a short walk from Centraal"]
   ],
   "Amsterdam":[
     ["Canal ring walk — Jordaan and the Nine Streets",2.5,""],
@@ -575,20 +588,18 @@ var SIGHTS = {
     ["Begijnhof courtyard",0.5,""],
     ["Zaanse Schans windmills",4.0,"Half a day out of the city"]
   ],
-  "Budapest":[
-    ["Parliament interior tour",1.5,"Book now — English slots go weeks ahead"],
-    ["Shoes on the Danube",0.5,"Ten minutes from Parliament"],
-    ["St Stephen's Basilica",1.0,"Climb the dome for the view"],
-    ["Great Market Hall",1.0,"Closed Sundays"],
-    ["Széchenyi thermal baths",3.0,"Go after dark — better, and it frees a half-day"],
-    ["Castle Hill and Fisherman's Bastion",2.5,"Funicular or the walk up from Chain Bridge"],
-    ["Matthias Church",0.75,""],
-    ["Chain Bridge on foot",0.5,"Do it at night"],
-    ["Ruin bar evening — Szimpla and around",2.5,""],
-    ["Dinner and the Danube promenade",3.0,""],
-    ["Andrássy út and the House of Terror",2.0,""],
-    ["Margaret Island",2.0,""],
-    ["Gellért Hill and the Citadella",2.0,"The best panorama in the city"]
+  "Prague":[
+    ["Old Town Square and the astronomical clock",1.5,""],
+    ["Charles Bridge",1.0,"Dawn or dusk — midday is shoulder to shoulder"],
+    ["Prague Castle complex",3.0,"Uphill; allow the full block"],
+    ["St Vitus Cathedral",1.0,"Inside the castle grounds"],
+    ["Malá Strana wander",2.0,""],
+    ["Dinner and a beer hall",2.5,""],
+    ["Letná beer garden viewpoint",1.5,"Best view of the bridges"],
+    ["Petřín Hill and tower",2.0,"Funicular up, walk down"],
+    ["Jewish Quarter (Josefov)",2.5,""],
+    ["Vyšehrad",2.0,"Quieter than the castle, better light"],
+    ["Kutná Hora",6.0,"A day trip in its own right — doesn't fit this itinerary, but worth knowing about"]
   ],
   "CDG airport hotel":[]
 };
@@ -599,12 +610,12 @@ var VIBES = {
     "Wide boulevards and formal parks, waiters who expect you to know the etiquette. Even a rushed evening feels like it's performing for you, in a good way — nothing here is trying to look effortless."],
   "Brussels":["Scrappy charm",
     "Unpretentious around a genuinely beautiful core — comic-book murals a block from Gothic guild halls, and nobody's dressed up for it. Feels like a city that stopped trying to impress anyone decades ago."],
-  "Cologne":["One-cathedral town",
-    "Ordinary postwar German city with one enormous exception — the Dom looms over the station forecourt like nothing else on this route. Everything else here is pleasant and unremarkable, which is honest, not a knock."],
+  "Antwerp":["Compact and confident",
+    "Everything within a few minutes of a station that's a sight in itself. Smaller and more intimate than Brussels, Rubens hanging exactly where he left him — feels less like a capital city performing for tourists and more like a place that doesn't need to."],
   "Amsterdam":["Domestic",
     "Compact and lived-in — gabled houses at bicycle height, canals you can touch from the sidewalk. Feels residential even right next to the big museums, more like visiting a very tidy friend than sightseeing."],
-  "Budapest":["Faded grandeur",
-    "Habsburg-scale boulevards gone slightly rough at the edges, in a good way. The thermal baths are a genuine local habit, not a tourist spa — go after dark and you'll mostly hear Hungarian."]
+  "Prague":["Fairy-tale, well-worn",
+    "Gothic spires and cobbled lanes that look exactly like the postcards, because this is one of the only old centers on the route that wasn't rebuilt after the war. Shoulder-to-shoulder at the astronomical clock, genuinely atmospheric everywhere else — especially once the day-trippers clear out."]
 };
 
 var CITY_NOTE = {
@@ -624,23 +635,19 @@ var BOOKINGS = [
    "Online only, never at the door. Tickets drop every Tuesday at 10:00 Amsterdam time for the week six weeks later. The remaining shot for this week is the small extra batch released the Tuesday before: Tuesday 1 September, 10:00 Amsterdam, which is 01:00 in Seattle. €16.50.",
    "https://www.annefrank.org/en/museum/tickets/","annefrank.org", null],
 
-  [1,"Hungarian Parliament interior tour","Budapest · Wed 10 Sep",
-   "Official advance sales go through Jegymester only. English-language September slots go weeks ahead. Choose the non-EEA category, and keep the morning flexible — tours can be cancelled at short notice for state events.",
-   "https://www.jegymester.hu/parlament","jegymester.hu", null],
+  [2,"Eurostar to Antwerp, then Intercity to Amsterdam","Sun 7 Sep",
+   "Direct Eurostar to Antwerpen-Centraal, no change at Brussels, then a Dutch/Belgian Intercity on to Amsterdam. Book both alongside each other so the connection is locked in.",
+   "https://www.eurostar.com/","eurostar.com", function(o){ return !o.brussels; }],
 
   [2,"Eurostar — Paris to Brussels, then Brussels to Amsterdam","Sun 7 Sep",
    "Two separate tickets. Fares climb steeply toward the date, and the cheap buckets on the Brussels–Amsterdam leg go first.",
-   "https://www.eurostar.com/","eurostar.com", function(o){ return !o.cologne; }],
+   "https://www.eurostar.com/","eurostar.com", function(o){ return o.brussels; }],
 
-  [2,"Brussels to Cologne, then Cologne to Amsterdam","Sun 7 Sep",
-   "Thalys/ICE to Cologne, then ICE International onward. Book both alongside the Paris–Brussels leg so the connection times are locked before anything sells out.",
-   "https://www.thalys.com/","thalys.com", function(o){ return o.cologne; }],
-
-  [2,"Flight, Amsterdam to Budapest","Wed 10 Sep, 09:15",
-   "Direct. Book the early departure — later options add a connection through Vienna or Munich.",
+  [2,"Flight, Amsterdam to Prague","Wed 10 Sep, 09:15",
+   "Direct — KLM or Czech Airlines. Book the early departure so a full day in Prague is still possible on arrival.",
    "https://www.klm.com/","klm.com", null],
 
-  [2,"Flight, Budapest to Paris CDG","Fri 12 Sep, 19:30",
+  [2,"Flight, Prague to Paris CDG","Fri 12 Sep, 20:45",
    "The repositioning leg back to CDG for the overnight before the flight home. Book it as its own ticket rather than assuming it bundles with the transatlantic fare.",
    "https://www.airfrance.com/","airfrance.com", null],
 
@@ -656,9 +663,9 @@ var BOOKINGS = [
    "Timed entry. Usually available a few days out, but the morning slots will not be.",
    "https://www.rijksmuseum.nl/en","rijksmuseum.nl", null],
 
-  [3,"Széchenyi Baths","Budapest · Wed 10 Sep",
-   "Buy for the date on the official site. Go in the evening — thinner crowds, better atmosphere, and it frees a half-day.",
-   "https://www.szechenyibath.hu/","szechenyibath.hu", null],
+  [4,"Prague Castle and St Vitus","Prague · Thu 11 Sep",
+   "Circuit tickets are sold at the gate and rarely run out. Arrive before 09:00 and the security queue is minutes rather than an hour.",
+   "https://www.hrad.cz/en","hrad.cz", null],
 
   [3,"Musée d’Orsay","Paris · Fri 5 Sep",
    "Timed entry. The better single museum if you would rather not lose half a day inside the Louvre.",
@@ -704,7 +711,7 @@ function renderBookings(o){
 // transatlantic component.
 var ORIGINAL = {explore:98.0, sleep:52.0, dead:23.4, inter:24.15, local:13.8, all:211.35};
 
-var opts = { cologne:false };
+var opts = { brussels:false };
 var openCat = null;
 var openCity = null;
 var BASE_TOTALS = null;
@@ -823,7 +830,7 @@ function cityStats(blocks){
 }
 
 var MODES = {1:"Flight",18:"Eurostar",22:"Eurostar",38:"Flight",52:"Flight",58:"Flight",
-             203:"Train",207:"Train"};
+             101:"Eurostar",105:"Train"};
 var MODECLS = {"Flight":"mode-flight","Night bus":"mode-bus","Eurostar":"mode-train","Train":"mode-train"};
 
 function railLink(b){
@@ -1003,7 +1010,7 @@ function renderPanel(blocks, t){
 
 function renderDelta(t){
   var el = document.getElementById("delta");
-  if (!opts.cologne){ el.innerHTML = "Showing the plan as it stands. Toggle Cologne to see what it would actually change."; return; }
+  if (!opts.brussels){ el.innerHTML = "Showing the plan as it stands. Toggle Brussels to see what it would actually change."; return; }
   var parts = [], keys = ["explore","sleep","dead","inter","local"];
   var names = {explore:"exploring", sleep:"sleep", dead:"dead hours", inter:"intercity travel", local:"local transfers"};
   var better = {explore:1, sleep:1, dead:-1, inter:-1, local:-1};
@@ -1013,7 +1020,7 @@ function renderDelta(t){
     var good = (d > 0 ? 1 : -1) === better[keys[i]];
     parts.push('<b class="' + (good ? "up" : "down") + '">' + (d > 0 ? "+" : "−") + h1(Math.abs(d)) + ' h ' + names[keys[i]] + '</b>');
   }
-  el.innerHTML = parts.length ? "With Cologne added: " + parts.join(", ") + "." : "With Cologne added: no measurable change in the time budget.";
+  el.innerHTML = parts.length ? "With Brussels instead of Antwerp: " + parts.join(", ") + "." : "With Brussels instead of Antwerp: no measurable change in the time budget.";
 }
 
 function renderVibe(cs){
@@ -1047,8 +1054,10 @@ function renderVersus(t){
     '<p>Cutting the Amsterdam–Prague night bus is the single biggest lever — it alone was costing sleep and a groggy morning. Four hotel bases instead of six also means less time lost to changing rooms.</p></div>' +
     '<div class="note"><span class="flag">Gained</span><h3>' + h1(t.sleep - ORIGINAL.sleep) + ' more hours of sleep</h3>' +
     '<p>Every night is now a real bed. The original plan had a broken night on a coach that counted for nothing.</p></div>' +
-    '<div class="note"><span class="flag">Lost</span><h3>Prague</h3>' +
-    '<p>The least redundant city on the original route — a medieval centre intact through the war, against a Budapest that was largely rebuilt. If a full city is worth more to you than the hours back, this is the trade to reconsider.</p></div>';
+    '<div class="note"><span class="flag">Lost</span><h3>Vienna</h3>' +
+    '<p>Cost almost nothing on the original route either — a 3.5-hour stopover for a 45-minute museum visit. Still not worth reinstating here: it would need to be a real overnight stop to be worth the detour, and this plan doesn’t have a spare day for it.</p></div>' +
+    '<div class="note"><span class="flag">Lost</span><h3>Budapest</h3>' +
+    '<p>A genuinely different city from Prague, not a redundant one — Parliament, the Great Market Hall, Széchenyi after dark. This version trades it for a fuller, better-paced Prague. If Budapest specifically is what you wanted, this isn’t a strict upgrade, just a different trip.</p></div>';
 }
 
 function render(){
@@ -1063,7 +1072,7 @@ function render(){
   for (var i = 0; i < CATS.length; i++) bb[i].setAttribute("aria-pressed", String(openCat === CATS[i].k));
 }
 
-BASE_TOTALS = totals(build({cologne:false}));
+BASE_TOTALS = totals(build({brussels:false}));
 
 document.addEventListener("click", function(e){
   var t = e.target, opt = null, cat = null, city = null;
