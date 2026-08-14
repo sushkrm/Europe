@@ -252,26 +252,30 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   .close,.budget .hint,.opts .hint{display:none}
   .opt[aria-pressed="false"]{display:none}
 }
-@media print{ .dep-banner{display:none} }
-.dep-banner{background:var(--paper);border-bottom:2px solid var(--local);padding:14px 20px;
+@media print{ .dep-stack{display:none} }
+.dep-stack{position:sticky;top:0;z-index:21;background:var(--paper);margin:0 -20px}
+.dep-banner{background:var(--paper);border-bottom:1.5px solid var(--local);padding:12px 20px;
   display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;justify-content:center;text-align:center}
 .dep-flag{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--local);font-weight:600;white-space:nowrap}
 .dep-text{font-family:"Newsreader",Georgia,serif;font-size:.92rem;color:var(--ink-2)}
 .dep-link{color:var(--local);text-decoration:underline;text-underline-offset:2px;font-weight:500}
 .dep-link:hover{color:var(--ink)}
+.dep-stack .nav{position:static;margin:0;padding:0 20px}
 </style>
 </head>
 <body>
+<div class="wrap">
+
+<div class="dep-stack">
 <div class="dep-banner">
   <span class="dep-flag">Deprecated plan</span>
   <span class="dep-text">This is an earlier version of this itinerary and is no longer being maintained. See the <a class="dep-link" href="https://sushkrm.github.io/Europe/3.0/">current plan (Europe 3.0)</a>.</span>
 </div>
-<div class="wrap">
-
 <nav class="nav" id="nav" aria-label="Sections">
   <div class="navin"><a href="#budget" data-nav="budget">Time budget</a><a href="#route" data-nav="route">Route</a><a href="#percity" data-nav="percity">Per city</a><a href="#vibe" data-nav="vibe">Vibe</a><a href="#days" data-nav="days">Day by day</a><a href="#versus" data-nav="versus">Vs original</a><a href="#book" data-nav="book">Bookings</a><a href="#prep" data-nav="prep">Before you go</a></div>
 </nav>
+</div>
 
 <header>
   <p class="route" id="routeline"></p>
