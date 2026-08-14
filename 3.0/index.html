@@ -592,13 +592,7 @@ var SIGHTS = {
     ["Cinquantenaire Park and arch",1.0,""],
     ["Atomium",2.5,"Far out on metro 6 — not on a stopover"]
   ],
-  "Antwerp":[
-    ["Cathedral of Our Lady",1.0,"Rubens altarpieces in situ — the Raising and Descent of the Cross"],
-    ["Grote Markt",0.5,"Two minutes from Centraal"],
-    ["Antwerpen-Centraal itself",0.5,"One of Europe's great railway stations — worth ten minutes before you leave the platform"],
-    ["MAS museum and riverside walk",1.5,"Free to walk up; the view from the top floor is the reason to go inside"],
-    ["Rubens House",1.5,"His actual home and studio, a short walk from Centraal"]
-  ],
+  "Antwerp":[],
   "Amsterdam":[
     ["Canal ring walk — Jordaan and the Nine Streets",2.5,""],
     ["Anne Frank House",1.5,"Timed entry released exactly six weeks ahead"],
@@ -642,7 +636,8 @@ var VIBES = {
 };
 
 var CITY_NOTE = {
-  "CDG airport hotel":"An airport overnight, nothing more. Book something terminal-connected — Ibis Styles CDG or Sheraton CDG — so a late landing doesn't turn into a shuttle hunt."
+  "CDG airport hotel":"An airport overnight, nothing more. Book something terminal-connected — Ibis Styles CDG or Sheraton CDG — so a late landing doesn't turn into a shuttle hunt.",
+  "Antwerp":"This stop runs on a fixed sequence, not a loose priority list — the station, Grote Markt, brunch, free wander, then the Cathedral timed to its Sunday opening. See Day by day for the exact schedule and Experiences for the reasoning behind the order. MAS and the Rubens House didn't make the cut at this length; both are real options if the stopover ever runs longer."
 };
 
 var TIERS = [
@@ -940,7 +935,7 @@ function renderCityPanel(cs){
     fits + " of these — everything below the line needs time you don't have on this trip.";
   document.getElementById("c-note").textContent = note;
   document.getElementById("c-body").innerHTML = rows ||
-    '<tr><td colspan="4" class="why">Nothing scheduled — this is a sleep stop.</td></tr>';
+    '<tr><td colspan="4" class="why">No loose candidate list here — see Day by day for what\'s actually happening.</td></tr>';
   el.hidden = false;
 }
 
