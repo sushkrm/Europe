@@ -258,7 +258,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
 <div class="wrap">
 
 <nav class="nav" id="nav" aria-label="Sections">
-  <div class="navin"><a href="#route" data-nav="route">Route</a><a href="#days" data-nav="days">Day by day</a><a href="#book" data-nav="book">Bookings</a><a href="#prep" data-nav="prep">Before you go</a><a href="#experiences" data-nav="experiences">Experiences</a><a href="#percity" data-nav="percity">Per city</a><a href="#budget" data-nav="budget">Time budget</a><a href="#antwerp" data-nav="antwerp">Brussels vs Antwerp</a><a href="#versus" data-nav="versus">Vs original</a><a href="#vibe" data-nav="vibe">Vibe</a></div>
+  <div class="navin"><a href="#route" data-nav="route">Route</a><a href="#days" data-nav="days">Day by day</a><a href="#book" data-nav="book">Bookings</a><a href="#prep" data-nav="prep">Before you go</a><a href="#weather" data-nav="weather">Weather</a><a href="#experiences" data-nav="experiences">Experiences</a><a href="#percity" data-nav="percity">Per city</a><a href="#budget" data-nav="budget">Time budget</a><a href="#antwerp" data-nav="antwerp">Brussels vs Antwerp</a><a href="#versus" data-nav="versus">Vs original</a><a href="#vibe" data-nav="vibe">Vibe</a></div>
 </nav>
 
 <header>
@@ -332,12 +332,29 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
     <div class="note"><span class="flag">Blocking</span><h3>Re-entry documents</h3>
       <p>I-20 travel signature current within six months, EAD card, and an employment verification letter in your carry-on, not checked.</p></div>
     <div class="note"><span class="flag">Money</span><h3>One ticket, three legs</h3>
-      <p>Search multi-city: SEA→CDG on the 3rd, CDG→SEA on the 13th, plus the Amsterdam→Prague and Prague→CDG hops. A bag is checked on the Amsterdam→Prague leg — budget the extra check-in time and the baggage-claim wait on arrival, both already built into that day's schedule.</p></div>
+      <p>Search multi-city: SEA→CDG on the 3rd, CDG→SEA on the 13th, plus the Prague→CDG hop. Amsterdam→Prague is the night train instead of a flight — no baggage claim to worry about, but 3 large bags plus 3 laptop bags in a shared couchette compartment is a genuinely tighter squeeze than a plane's hold. Check European Sleeper's own luggage guidance before you assume it'll all fit.</p></div>
     <div class="note"><span class="flag">Free time</span><h3>Trim the mornings</h3>
       <p>Morning routine is the largest slice of dead time on this plan. Thirty minutes saved off each buys back several hours across ten days.</p></div>
     <div class="note"><span class="flag">Hotels</span><h3>Stay near the stations</h3>
       <p>Four bases this time, not six — Paris, Amsterdam, Prague, CDG. Walking distance to Gare du Nord, Centraal and Wenceslas Square is still the only real fix for local-transfer time.</p></div>
   </div>
+</section>
+
+<section id="weather">
+  <div class="section-head">
+    <h2>Weather</h2>
+    <h3>Typical conditions, not a forecast</h3>
+    <p class="lede">Real forecasts aren't meaningfully reliable this far out — this is seasonal averages for each leg, useful for packing, not for predicting the actual week. Worth checking an actual forecast about a week before you leave.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Leg</th><th>Dates</th><th class="num">High</th><th class="num">Low</th><th>Rain</th><th>Wind</th><th>Suggested clothing</th><th>Footwear &amp; rain gear</th></tr></thead>
+    <tbody>
+      <tr><td class="place">Paris</td><td class="tm">Sep 3–6</td><td class="num">~22°C</td><td class="num">~13°C</td><td class="why">Occasional, moderate</td><td class="why">~15–20 km/h, light</td><td class="why">Breathable short sleeves by day, light sweater for morning/evening</td><td class="why">Comfortable walking shoes; umbrella is fine here</td></tr>
+      <tr><td class="place">Antwerp (day 5)</td><td class="tm">Sep 7</td><td class="num">~20–21°C</td><td class="num">~11–12°C</td><td class="why">Frequent — ~15 days/month</td><td class="why">~10 km/h, light</td><td class="why">Long sleeves or a light sweater, packable rain layer</td><td class="why">Water-resistant walking shoes; compact umbrella or rain jacket</td></tr>
+      <tr><td class="place">Amsterdam</td><td class="tm">Sep 7–9</td><td class="num">~18–19°C</td><td class="num">~11–12°C</td><td class="why">Frequent — ~11 days/month, 80% humidity</td><td class="why">~15–25 km/h, can gust higher</td><td class="why">Layered long sleeves + packable rain jacket — wind makes umbrellas less effective here</td><td class="why">Water-resistant walking shoes; hooded rain jacket, skip the umbrella</td></tr>
+      <tr><td class="place">Prague</td><td class="tm">Sep 10–12</td><td class="num">~18–19°C</td><td class="num">~9–10°C</td><td class="why">Less frequent, coolest nights</td><td class="why">~12–15 km/h, light</td><td class="why">Long sleeves + a real warm layer (fleece or light puffer) for the two evening outdoor sessions</td><td class="why">Comfortable walking shoes; keep the warm layer accessible, not packed away</td></tr>
+    </tbody>
+  </table></div>
 </section>
 
 <section id="experiences">
@@ -501,17 +518,17 @@ B(29,6,3,"07:05–22:30",15.42,"explore","Amsterdam","Anne Frank House and the R
 B(30,6,4,"22:30–22:45",0.25,"dead","Amsterdam","Wind-down"),
 B(31,7,1,"22:45–05:20",6.58,"sleep","Amsterdam","Second Amsterdam night"),
 B(32,7,2,"05:20–06:50",1.5,"dead","Amsterdam","Morning routine"),
-B(33,7,3,"06:50–22:30",15.67,"explore","Amsterdam","Van Gogh Museum, a canal boat tour, the Jordaan and Nine Streets for dinner.",1),
-B(34,7,4,"22:30–22:45",0.25,"dead","Amsterdam","Wind-down — early alarm tonight"),
-B(35,8,1,"22:45–05:30",6.75,"sleep","Amsterdam","Short night before a flight day"),
-B(36,8,2,"05:30–06:45",1.25,"dead","Amsterdam","Morning plus checkout"),
-B(37,8,3,"06:45–09:30",2.75,"local","Amsterdam hotel → Schiphol","Direct train, plus check-in with a checked bag — allow more than carry-on alone would need. Leave the hotel by 06:45.",1),
-B(38,8,4,"09:30–11:10",1.67,"inter","Amsterdam AMS → Prague PRG","Direct flight, bag checked through.",1),
-B(59,8,5,"11:10–11:30",0.33,"dead","Prague","Baggage claim — a real wait now that a bag is checked, not carry-on"),
-B(39,8,6,"11:30–12:00",0.5,"local","PRG → Prague hotel","Bus 119 plus metro A, or a taxi.",1),
-B(40,8,7,"12:00–12:15",0.25,"dead","Prague","Drop bags at the hotel — check-in may not be ready this early, but they'll hold bags"),
-B(41,8,8,"12:15–22:23",10.14,"explore","Prague","Old Town Square, the astronomical clock, Charles Bridge at dusk — low-effort walking after a travel day.",1),
-B(42,8,9,"22:23–22:38",0.25,"dead","Prague","Wind-down"),
+B(33,7,3,"06:50–21:35",14.75,"explore","Amsterdam","Van Gogh Museum, a canal boat tour, the Jordaan and Nine Streets for dinner — wrapped earlier than a normal evening to make the night train.",1),
+B(60,7,4,"21:35–22:00",0.42,"local","Amsterdam Centraal → Bijlmer ArenA","Direct train — quick, but leave real margin ahead of an international night-train departure.",1),
+B(61,7,5,"22:00–22:35",0.58,"dead","Amsterdam Bijlmer ArenA","Boarding buffer — international night trains want you on the platform with time to spare."),
+B(62,7,6,"22:35–23:00",0.42,"dead","European Sleeper to Prague","Settling into the couchette — Classic Shared, 5-person compartment."),
+B(63,8,1,"23:00–07:00",8.0,"sleep","European Sleeper to Prague","Overnight in the couchette — a real bed with sheets and a blanket, not a bus seat. How well this actually sleeps depends on the compartment and who else is booked into it."),
+B(64,8,2,"07:00–07:45",0.75,"dead","European Sleeper to Prague","Wake, pack up the bedding, get dressed — no shower on board, just the shared sink. Bags stay with you the whole way; no baggage claim to deal with on arrival."),
+B(65,8,3,"07:45–12:15",4.5,"inter","Amsterdam Bijlmer ArenA → Prague hl.n.","European Sleeper, Classic Shared — still moving. Breakfast on board if ordered, otherwise just watching the country go by.",1),
+B(39,8,4,"12:15–12:35",0.33,"local","Praha hl.n. → Prague hotel","Tram or metro — the main station is far more central than the airport was.",1),
+B(40,8,5,"12:35–12:50",0.25,"dead","Prague","Drop bags at the hotel — check-in may not be ready this early, but they'll hold bags"),
+B(41,8,6,"12:50–22:23",9.55,"explore","Prague","Old Town Square, the astronomical clock, Charles Bridge at dusk — low-effort walking after a travel day.",1),
+B(42,8,7,"22:23–22:38",0.25,"dead","Prague","Wind-down"),
 B(43,9,1,"22:45–05:20",6.58,"sleep","Prague","First Prague night"),
 B(44,9,2,"05:20–06:50",1.5,"dead","Prague","Morning routine"),
 B(45,9,3,"06:50–22:30",15.67,"explore","Prague","Prague Castle complex and St Vitus Cathedral, Malá Strana, then Letná beer garden for the view.",1),
@@ -550,7 +567,7 @@ var CATS = [
   {k:"explore", label:"Actually exploring", cls:"s-explore", css:"var(--explore)",
    note:"Feet on the ground, seeing things. This is the number every other line competes against."},
   {k:"sleep", label:"Sleep", cls:"s-sleep", css:"var(--sleep)",
-   note:"Real hotel nights only — sleep on a plane doesn't count here, and the transatlantic flights aren't in this budget at all."},
+   note:"Real beds only — hotel nights, plus the one night in a couchette on the Prague night train. Sleep on a plane still doesn't count; the transatlantic flights aren't in this budget at all."},
   {k:"dead", label:"Dead hours", cls:"s-dead", css:"var(--dead)",
    note:"Not travel, not sleep, not seeing anything. Morning routine is the biggest slice — thirty minutes trimmed off each buys back real time across ten days."},
   {k:"inter", label:"Intercity travel", cls:"s-inter", css:"var(--intercity)",
@@ -678,9 +695,9 @@ var BOOKINGS = [
    "The cheap fare buckets on this specific leg go first — usually the tightest one of the day to find a good price on.",
    "https://www.eurostar.com/","eurostar.com", function(o){ return o.brussels; }],
 
-  [1,"Flight, Amsterdam to Prague","Thu 10 Sep, 09:15",
-   "Direct — KLM or Czech Airlines. Book the early departure so a full day in Prague is still possible on arrival. A bag is checked on this leg.",
-   "https://www.klm.com/","klm.com", null],
+  [1,"Night train, Amsterdam to Prague","Wed 9 Sep, 22:35",
+   "European Sleeper, departs Amsterdam Bijlmer ArenA (not Centraal), arrives Praha hl.n. 12:15 the next day. Classic Shared is a couchette in a 5-person compartment — Comfort (3-person, real mattress) costs more but meaningfully reduces the risk of a bad night. Skip the “Good Night” flexibility tier; its 1-month cancellation window is already gone by the time most people book this.",
+   "https://www.europeansleeper.eu/","europeansleeper.eu", null],
 
   [1,"Flight, Prague to Paris CDG","Sat 12 Sep, 20:45",
    "The repositioning leg back to CDG for the overnight before the flight home. Book it as its own ticket rather than assuming it bundles with the transatlantic fare.",
@@ -816,7 +833,7 @@ function renderFacts(blocks, t){
   }
   var nc = 0; for (var c in cities) nc++;
   document.getElementById("facts").innerHTML =
-    fact(nc, "Cities") + fact(nights, "Hotel nights") + fact(legs, "Intercity legs") +
+    fact(nc, "Cities") + fact(nights, "Nights") + fact(legs, "Intercity legs") +
     fact(Math.round(t.all) + "<span style='font-size:.6em'>h</span>", "Paris to Paris") +
     fact(Math.round(t.explore) + "<span style='font-size:.6em'>h</span>", "Actually exploring");
 }
@@ -864,9 +881,9 @@ function cityStats(blocks){
   return {map:m, order:order};
 }
 
-var MODES = {1:"Flight",18:"Eurostar",22:"Eurostar",38:"Flight",52:"Flight",58:"Flight",
-             101:"Eurostar",105:"Train"};
-var MODECLS = {"Flight":"mode-flight","Night bus":"mode-bus","Eurostar":"mode-train","Train":"mode-train"};
+var MODES = {1:"Flight",18:"Eurostar",22:"Eurostar",52:"Flight",58:"Flight",
+             65:"Night train",101:"Eurostar",105:"Train"};
+var MODECLS = {"Flight":"mode-flight","Night bus":"mode-bus","Eurostar":"mode-train","Train":"mode-train","Night train":"mode-train"};
 
 function railLink(b){
   if (!b) return "";
