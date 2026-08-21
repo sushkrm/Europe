@@ -314,7 +314,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1.5px solid var(--ink);font-s
   <div class="section-head">
     <h2>Bookings</h2>
     <h3>Tickets to buy before you go</h3>
-    <p class="lede">Museums, attractions and trains only — hotels and flights left out for now. Ordered by how soon it has to happen. This list changes with the option at the top.</p>
+    <p class="lede">Museums and attractions still need booking; the trains and the Prague–CDG flight below are already confirmed. Ordered by how soon it has to happen. This list changes with the option at the top.</p>
   </div>
   <div id="bookings"></div>
 </section>
@@ -682,12 +682,12 @@ var BOOKINGS = [
    "Online only, never at the door. Tickets drop every Tuesday at 10:00 Amsterdam time for the week six weeks later. The remaining shot for this week is the small extra batch released the Tuesday before: Tuesday 1 September, 10:00 Amsterdam, which is 01:00 in Seattle. €16.50.",
    "https://www.annefrank.org/en/museum/tickets/","annefrank.org", null],
 
-  [1,"Eurostar, Paris to Antwerp","Mon 7 Sep",
-   "Direct service, no change at Brussels. Book alongside the onward Amsterdam leg below so the connection time is locked in before anything sells out.",
+  [1,"Eurostar, Paris to Antwerp — booked","Mon 7 Sep, 07:14",
+   "Confirmed — train 9309, booking reference YYN3TP. Direct service, no change at Brussels.",
    "https://www.eurostar.com/","eurostar.com", function(o){ return !o.brussels; }],
 
-  [1,"Eurocity Direct, Antwerp to Amsterdam","Mon 7 Sep, 14:35",
-   "A regular Dutch/Belgian Eurocity Direct service (train 9551), not Eurostar — cheaper, and it doesn't sell out the same way, but book it now anyway so the same-day connection off the Eurostar is guaranteed. Ends at Amsterdam Zuid, not Centraal.",
+  [1,"Eurocity Direct, Antwerp to Amsterdam — booked","Mon 7 Sep, 14:35",
+   "Confirmed — train 9551, booking reference MNNJWVJ. A regular Dutch/Belgian Eurocity Direct service, not Eurostar. Ends at Amsterdam Zuid, not Centraal.",
    "https://www.ns.nl/en","ns.nl", function(o){ return !o.brussels; }],
 
   [1,"Eurostar, Paris to Brussels","Mon 7 Sep",
@@ -698,12 +698,12 @@ var BOOKINGS = [
    "The cheap fare buckets on this specific leg go first — usually the tightest one of the day to find a good price on.",
    "https://www.eurostar.com/","eurostar.com", function(o){ return o.brussels; }],
 
-  [1,"Night train, Amsterdam to Prague","Wed 9 Sep, 22:35",
-   "European Sleeper, departs Amsterdam Bijlmer ArenA (not Centraal), arrives Praha hl.n. 12:15 the next day. Classic Shared is a couchette in a 5-person compartment — Comfort (3-person, real mattress) costs more but meaningfully reduces the risk of a bad night. Skip the “Good Night” flexibility tier; its 1-month cancellation window is already gone by the time most people book this.",
+  [1,"Night train, Amsterdam to Prague — booked","Wed 9 Sep, 22:35",
+   "Confirmed — train ES453, booking code DPQD-539B. European Sleeper, departs Amsterdam Bijlmer ArenA (not Centraal), arrives Praha hl.n. 12:15 the next day. Classic Shared, 5-person compartment.",
    "https://www.europeansleeper.eu/","europeansleeper.eu", null],
 
-  [1,"Flight, Prague to Paris CDG","Sat 12 Sep, 19:30",
-   "The repositioning leg back to CDG for the overnight before the flight home — booked via Zurich on SWISS (1 stop, 4h total) rather than a direct flight. Book it as its own ticket rather than assuming it bundles with the transatlantic fare.",
+  [1,"Flight, Prague to Paris CDG — booked","Sat 12 Sep, 19:30",
+   "Confirmed — SWISS LX1489/LX646, confirmation H-N-KGS482 (SWISS ref C2TZOK). The repositioning leg back to CDG for the overnight before the flight home, via Zurich (1 stop, 4h total) rather than a direct flight.",
    "https://www.swiss.com/","swiss.com", null],
 
   [2,"Eiffel Tower","Paris · Sat 5 Sep",
